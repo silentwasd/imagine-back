@@ -7,15 +7,15 @@ use Illuminate\Support\Facades\Schema;
 return new class extends Migration {
     public function up(): void
     {
-        Schema::table('image_tag', function (Blueprint $table) {
-            $table->index(['image_id', 'tag_id']);
+        Schema::table('tags', function (Blueprint $table) {
+            $table->bigInteger('frequency')->unsigned()->after('name')->default(0);
         });
     }
 
     public function down(): void
     {
-        Schema::table('image_tag', function (Blueprint $table) {
-            $table->index(['image_id']);
+        Schema::table('tags', function (Blueprint $table) {
+            $table->dropColumn('frequency');
         });
     }
 };
