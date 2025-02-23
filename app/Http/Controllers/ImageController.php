@@ -31,7 +31,7 @@ class ImageController extends Controller
                        ->when($data['image_id'] ?? false, fn($when) => $when->orderByRaw('id = ? DESC', [$data['image_id']]))
                        ->when($data['exclude_image_id'] ?? false, fn($when) => $when->whereNot('id', $data['exclude_image_id']))
                        ->when(!($data['mature'] ?? false), fn($when) => $when->whereDoesntHave('tags', fn(Builder $has) => $has
-                           ->whereIn('tags.name', ['rating:explicit', 'rating:questionable', 'pussy', 'panties', 'butt_crack'])
+                           ->whereIn('tags.name', ['rating:explicit', 'rating:questionable', 'pussy', 'panties', 'butt_crack', 'nipples'])
                        )->has('tags'))
                        ->orderBy('order_id')
                        ->paginate(perPage: 8 * 10);
