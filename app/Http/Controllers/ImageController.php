@@ -44,7 +44,9 @@ class ImageController extends Controller
                                'anal_tail',
                                'anal_beads',
                                'anal_object_insertion',
-                               'hetero'
+                               'hetero',
+                               'clothes_lift',
+                               'lifted_by_self'
                            ])
                        )->has('tags'))
                        ->orderBy('order_id')
