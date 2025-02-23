@@ -47,7 +47,9 @@ class ImageController extends Controller
                                'hetero',
                                'clothes_lift',
                                'lifted_by_self',
-                               'cum'
+                               'cum',
+                               'sex',
+                               'bottomless'
                            ])
                        )->has('tags'))
                        ->orderBy('order_id')
