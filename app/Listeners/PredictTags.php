@@ -26,5 +26,12 @@ class PredictTags implements ShouldQueue
                 'name' => $info[0]
             ]);
         }
+
+        if (!$event->image
+            ->tags()
+            ->whereIn('name', config('safety.bad_tags'))
+            ->exists()) {
+            $event->image->update(['is_safe' => true]);
+        }
     }
 }

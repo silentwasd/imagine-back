@@ -14,6 +14,10 @@ class Image extends Model
         'hash'
     ];
 
+    protected $casts = [
+        'is_safe' => 'boolean'
+    ];
+
     protected $dispatchesEvents = [
         'creating' => ImageCreating::class,
         'created'  => ImageCreated::class
