@@ -71,7 +71,7 @@ class ImageController extends Controller
         try {
             $image = Image::create(['path' => $path]);
         } catch (Exception $e) {
-            Log::info($e->getTraceAsString());;
+            Log::info($e->getMessage());
             abort(400, $e->getMessage());
         }
 
