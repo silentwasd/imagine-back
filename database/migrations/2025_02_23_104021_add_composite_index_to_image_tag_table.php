@@ -14,6 +14,8 @@ return new class extends Migration {
 
     public function down(): void
     {
-        //
+        Schema::table('image_tag', function (Blueprint $table) {
+            $table->index(['image_id']);
+        });
     }
 };
