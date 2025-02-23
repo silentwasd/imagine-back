@@ -27,7 +27,7 @@ class ImageController extends Controller
                                ->whereIn('image_tag.tag_id', $data['tags'])
                                , '=', count($data['tags']))
                        )
-                       ->with(['tags' => fn($with) => $with->withCount('images')->orderByDesc('images_count')])
+                       ->with(['tags' => fn($with) => $with->orderByDesc('frequency')])
                        ->when($data['image_id'] ?? false, fn($when) => $when->orderByRaw('id = ? DESC', [$data['image_id']]))
                        ->when($data['exclude_image_id'] ?? false, fn($when) => $when->whereNot('id', $data['exclude_image_id']))
                        ->when(!($data['mature'] ?? false), fn($when) => $when->whereDoesntHave('tags', fn(Builder $has) => $has
