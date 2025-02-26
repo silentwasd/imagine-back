@@ -21,8 +21,8 @@ class SetWebhookCommand extends Command
      */
     public function handle(): void
     {
-        $collectorBot = new Nutgram(config('services.telegram.collector_token'));
-        $collectorBot->setWebhook(config('app.url') . '/api/telegram/collector');
+        //$collectorBot = new Nutgram(config('services.telegram.collector_token'));
+        //$collectorBot->setWebhook(config('app.url') . '/api/telegram/collector');
 
         $galleryBot = new Nutgram(config('services.telegram.gallery_token'));
         $galleryBot->setWebhook(config('app.url') . '/api/telegram/gallery');
